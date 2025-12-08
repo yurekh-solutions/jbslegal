@@ -117,7 +117,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-primary-foreground/60">
             <p>© {new Date().getFullYear()} JBS Legal. All rights reserved.</p>
             <p className="text-center md:text-right">
-              Designed and Developed by <a href="https://yurekhsolutions.com" target="_blank" rel="noopener noreferrer" className="text-gold hover:text-gold/80 transition-colors">YurekhSolutions</a>
+              Designed and Developed by <a href="https://yurekh.com/" target="_blank" rel="noopener noreferrer" className="text-gold hover:text-gold/80 transition-colors">YurekhSolutions</a>
             </p>
           </div>
         </div>
