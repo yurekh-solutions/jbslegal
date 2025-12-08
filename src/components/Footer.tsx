@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Linkedin, Twitter } from 'lucide-react';
-import logo from '@/assets/jbs-logo.jpeg';
+import logo from '@/assets/jbss.png';
 
 const Footer = () => {
   const quickLinks = [
@@ -22,11 +22,11 @@ const Footer = () => {
 
   return (
     <footer className="gradient-hero text-primary-foreground">
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="container mx-auto px-4 py-12 sm:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12">
           {/* Logo & About */}
           <div className="space-y-6">
-            <img src={logo} alt="JBS Legal" className="h-16 w-auto bg-white/10 backdrop-blur-sm rounded-lg p-2" />
+            <img src={logo} alt="JBS Legal" className="h-20 sm:h-24 w-auto bg-white/20 backdrop-blur-sm rounded-lg p-3" />
             <p className="text-primary-foreground/80 text-sm leading-relaxed">
               JBS Legal is a full-service law firm delivering integrated legal solutions for complex business challenges across industries and borders.
             </p>

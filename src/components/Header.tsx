@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import logo from '@/assets/jbs-logo.jpeg';
+import logo from '@/assets/jbss.png';
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -46,7 +46,7 @@ const Header = () => {
             </a>
           </div>
           <div className="flex items-center gap-4">
-            <span className="text-gold/80">India | USA</span>
+            <span className="text-white ">India | USA</span>
           </div>
         </div>
       </div>
@@ -62,8 +62,8 @@ const Header = () => {
         <div className="container mx-auto px-4">
           <nav className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3">
-              <img src={logo} alt="JBS Legal" className="h-14 w-auto object-contain" />
+            <Link to="/" className="flex items-center gap-3 flex-shrink-0">
+              <img src={logo} alt="JBS Legal" className="h-16 sm:h-20 w-auto object-contain bg-transparent" />
             </Link>
 
             {/* Desktop Navigation */}
