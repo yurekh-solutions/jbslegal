@@ -59,11 +59,25 @@ const Header = () => {
             : 'bg-card/95 backdrop-blur-sm'
         }`}
       >
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6">
           <nav className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 flex-shrink-0">
-              <img src={logo} alt="JBS Legal" className="h-16 sm:h-20 w-auto object-contain bg-transparent" />
+            <Link to="/" className="flex items-center flex-shrink-0 group mt-14">
+              <div className="relative">
+                {/* Glow effect */}
+                <div className="absolute -inset-2 bg-gradient-to-r from-[#b8912e]/20 via-[#b8912e]/30 to-[#b8912e]/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                {/* Logo container */}
+                <div className="relative px-5 py-2 bg-gradient-to-br from-white via-white to-gray-50 border-b-3 border-l-3 border-r-3 border-[#b8912e] rounded-b-3xl shadow-xl hover:shadow-2xl transition-all duration-300 group-hover:scale-105">
+                  <img 
+                    src={logo} 
+                    alt="JBS Legal" 
+                    className="h-20 sm:h-24 md:h-28 w-auto object-contain drop-shadow-lg" 
+                  />
+                  {/* Shine effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 group-hover:translate-x-full transition-transform duration-1000"></div>
+                </div>
+              </div>
             </Link>
 
             {/* Desktop Navigation */}
@@ -98,10 +112,10 @@ const Header = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-foreground hover:text-gold transition-colors"
+              className="lg:hidden p-2 text-foreground hover:text-gold transition-colors flex-shrink-0"
               aria-label="Toggle menu"
             >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
             </button>
           </nav>
         </div>
@@ -112,12 +126,12 @@ const Header = () => {
             isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
           }`}
         >
-          <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
+          <div className="container mx-auto px-4 sm:px-6 py-6 flex flex-col gap-4">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
-                className={`text-base font-medium py-2 transition-colors ${
+                className={`text-base font-medium py-3 transition-colors ${
                   location.pathname === link.path
                     ? 'text-gold'
                     : 'text-foreground hover:text-gold'
@@ -126,9 +140,21 @@ const Header = () => {
                 {link.name}
               </Link>
             ))}
-            <Button asChild variant="gold" size="lg" className="mt-4">
+            <Button asChild variant="gold" size="lg" className="mt-4 w-full">
               <Link to="/contact">Get in Touch</Link>
             </Button>
+            
+            {/* Mobile Contact Info */}
+            <div className="mt-4 pt-4 border-t border-foreground/10 space-y-3">
+              <a href="tel:+917203881108" className="flex items-center gap-2 text-sm text-foreground/80 hover:text-gold transition-colors">
+                <Phone className="w-4 h-4" />
+                +91-7203881108
+              </a>
+              <a href="mailto:info@jbslegal.com" className="flex items-center gap-2 text-sm text-foreground/80 hover:text-gold transition-colors">
+                <Mail className="w-4 h-4" />
+                info@jbslegal.com
+              </a>
+            </div>
           </div>
         </div>
       </header>

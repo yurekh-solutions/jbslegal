@@ -117,7 +117,7 @@ const ServicesOverview = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 lg:py-28 bg-gradient-to-br from-navy via-navy-dark to-navy relative overflow-hidden">
+    <section ref={sectionRef} className="py-20 lg:py-28 bg-gradient-to-br from-navy via-navy-dark to-navy  relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -126,10 +126,10 @@ const ServicesOverview = () => {
         }} />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container  mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="font-display text-4xl lg:text-5xl font-bold mb-6 text-white">
+          <h2 className="font-display text-gold text-4xl lg:text-5xl font-bold mb-6 text-white">
             Our Legal Expertise
           </h2>
           <p className="text-white/90 text-lg leading-relaxed">
@@ -146,12 +146,12 @@ const ServicesOverview = () => {
               className="service-card group rounded-2xl overflow-hidden bg-white shadow-2xl hover:shadow-gold/20 transform hover:-translate-y-2 transition-all duration-500"
             >
               {/* Image with Overlay */}
-              <div className="relative h-56 overflow-hidden">
+              <div className="relative h-56  overflow-hidden">
                 <div
                   className="absolute inset-0 bg-cover bg-center transform group-hover:scale-110 transition-transform duration-700"
                   style={{ backgroundImage: `url(${service.image})` }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#e7eef5]/20 via-[#e7eef5]/10 to-transparent" />
                 
                 {/* Icon on Image */}
                 <div className="absolute bottom-4 left-4">
@@ -162,7 +162,7 @@ const ServicesOverview = () => {
               </div>
 
               {/* Content */}
-              <div className="p-6 bg-white">
+              <div className="p-6 bg-[#edf1f5]">
                 <h3 className="font-display text-xl font-bold text-navy mb-3 group-hover:text-gold transition-colors">
                   {service.title}
                 </h3>
@@ -182,7 +182,7 @@ const ServicesOverview = () => {
         </div>
 
         <div className="text-center mt-16">
-          <Button asChild variant="hero" size="xl" className="shadow-2xl hover:shadow-gold/30">
+          <Button asChild variant="hero" size="xl" className="shadow-2xl text-white hover:text-[#193966] hover:shadow-gold/30">
             <Link to="/services">View All Services</Link>
           </Button>
         </div>

@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { PhoneButton } from "@/components/PhoneButton";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 import Index from "./pages/Index";
 import About from "./pages/About";
@@ -32,6 +33,7 @@ const App = () => (
           <AppContent />
           <ScrollToTop />
           <WhatsAppButton />
+          <PhoneButton />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
