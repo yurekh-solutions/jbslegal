@@ -1,0 +1,178 @@
+===============================================
+CONSULTATION BOOKING SYSTEM - QUICK START
+===============================================
+
+⚠️  ERROR YOU SAW: 
+  404 Not Found on /api/consultation/book
+  
+✅ SOLUTION: You need to run the backend server!
+
+===============================================
+3 SIMPLE STEPS TO GET IT WORKING
+===============================================
+
+STEP 1: Set Up Gmail (2 minutes)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Go to: https://myaccount.google.com/apppasswords
+2. Select: Mail → Windows Computer
+3. Google shows a 16-character password
+4. Copy it (e.g., abcd efgh ijkl mnop)
+
+
+STEP 2: Add Credentials to .env.local (1 minute)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Open file: .env.local
+
+Replace:
+  GMAIL_USER=your-email@gmail.com
+  GMAIL_PASSWORD=your-16-char-app-password
+
+Example:
+  GMAIL_USER=yurekh@gmail.com
+  GMAIL_PASSWORD=abcd efgh ijkl mnop
+
+Save the file!
+
+
+STEP 3: Start Backend Server (1 minute)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Open a NEW Terminal and run:
+
+  npm run dev:server
+
+You'll see:
+  ✨ JBS Legal Consultation Server running on http://localhost:5000
+  📧 Email Service: GMAIL
+  📬 Admin Email: yurekhsolutions@gmail.com
+
+
+STEP 4: Start Frontend (in ANOTHER Terminal)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Run:
+  npm run dev
+
+Visit: http://localhost:5173
+
+
+STEP 5: Test It!
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Go to Contact page
+2. Click "Schedule Call" button
+3. Fill in form:
+   - Name: Your Name
+   - Email: your-email@gmail.com
+   - WhatsApp: 9876543210
+4. Click Submit
+
+Expected result:
+  ✅ Toast shows: "Consultation booked successfully!"
+  ✅ Email arrives in your inbox
+  ✅ Server console shows: "✅ User confirmation email sent to..."
+
+===============================================
+RUNNING BOTH SERVERS
+===============================================
+
+Terminal 1:
+  npm run dev:server
+  (Keep this running - backend)
+
+Terminal 2:
+  npm run dev
+  (Keep this running - frontend)
+
+Both run at same time!
+
+
+===============================================
+COMMON ISSUES & FIXES
+===============================================
+
+ERROR: "404 Not Found"
+→ You didn't start the backend server
+→ Run: npm run dev:server in a new terminal
+
+ERROR: "Invalid App Password"
+→ Wrong password copied from Gmail
+→ Go to https://myaccount.google.com/apppasswords again
+→ Generate a NEW password
+→ Update .env.local with new one
+
+ERROR: "Email not sending"
+→ Enable 2-Step Verification:
+   https://myaccount.google.com/security
+→ Use Gmail App Password, NOT regular password
+
+ERROR: ".env.local not found"
+→ File should be in project root folder
+→ Make sure it's named ".env.local" (with dot)
+
+
+===============================================
+WHAT'S BEING EMAILED
+===============================================
+
+User Gets Beautiful Email With:
+✓ Booking confirmation
+✓ Date & time
+✓ Booking reference ID
+✓ Professional JBS Legal branding
+✓ Instructions for next steps
+
+Admin Gets Alert Email With:
+✓ New booking notification
+✓ Client details with email/WhatsApp links
+✓ Scheduled date & time
+✓ Quick action buttons
+
+
+===============================================
+FILES CREATED FOR YOU
+===============================================
+
+✅ server.ts
+   → Backend API server
+   
+✅ .env.local
+   → Configuration (needs your Gmail credentials)
+   
+✅ .env.example
+   → Template for other email providers
+   
+✅ EMAIL_SETUP.md
+   → Detailed email setup guide
+   
+✅ BACKEND_SETUP.md
+   → Complete backend documentation
+
+
+===============================================
+NEXT STEPS
+===============================================
+
+Once emails are working:
+
+1. Deploy frontend to Vercel/Netlify
+2. Deploy backend to Heroku/Railway/Render
+3. Update VITE_API_URL in environment
+4. Add to database (optional)
+5. Set up WhatsApp notifications (optional)
+
+
+===============================================
+SUPPORT
+===============================================
+
+Read: BACKEND_SETUP.md (detailed guide)
+Read: EMAIL_SETUP.md (email configuration)
+
+Questions? Check the console logs!
+
+═══════════════════════════════════════════════
+Ready? Start with Step 1! 🚀
+═══════════════════════════════════════════════
