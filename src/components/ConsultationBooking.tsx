@@ -91,11 +91,24 @@ export const ConsultationBooking = ({ isOpen, onClose }: ConsultationBookingProp
 
       console.log('Booking submitted:', bookingData);
 
-      // Simulate success
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // Call backend API to create booking and send emails
+      const response = await fetch('/api/consultation/book', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(bookingData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Booking failed');
+      }
+
+      const result = await response.json();
 
       toast.success('Consultation booked successfully!', {
-        description: `Your booking is confirmed for ${format(selectedDate!, 'MMM dd, yyyy')} at ${selectedTime}`,
+        description: `Confirmation email sent to ${formData.email}. Check your inbox!`,
       });
 
       // Reset form

@@ -236,7 +236,7 @@ const Contact = () => {
                 type="button"
                 variant="outline"
                 size="xl"
-                className="flex-1 border-[#c3a14b] text-[#c3a14b] hover:bg-[#c3a14b]/5"
+                className="flex-1 border-[#c3a14b] text-[#c3a14b] hover:bg-[#c3a14b]/5 hover:text-[#193966]"
                 onClick={() => setIsConsultationModalOpen(true)}
               >
                 <Calendar className="w-5 h-5" />
