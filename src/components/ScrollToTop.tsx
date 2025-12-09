@@ -32,13 +32,21 @@ export const ScrollToTop = () => {
     <>
       {isVisible && (
         <Button
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 h-12 w-12 rounded-full shadow-lg transition-all hover:scale-110"
-          size="icon"
-          aria-label="Scroll to top"
-        >
-          <ArrowUp className="h-5 w-5" />
-        </Button>
+  onClick={scrollToTop}
+  className="
+    fixed z-50
+    h-12 w-12 rounded-full shadow-lg transition-all hover:scale-110
+
+    bottom-8 right-4        /* bottom button position */
+    sm:bottom-8 sm:right-6 /* small screens */
+    md:bottom-12 md:right-8 /* tablets & desktop */
+  "
+  size="icon"
+  aria-label="Scroll to top"
+>
+  <ArrowUp className="h-5 w-5" />
+</Button>
+
       )}
     </>
   );

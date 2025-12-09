@@ -61,24 +61,15 @@ const Header = () => {
       >
         <div className="container mx-auto px-4 sm:px-6">
           <nav className="flex items-center justify-between h-20">
-            {/* Logo */}
-            <Link to="/" className="flex items-center flex-shrink-0 group mt-14">
-              <div className="relative">
-                {/* Glow effect */}
-                <div className="absolute -inset-2 bg-gradient-to-r from-[#b8912e]/20 via-[#b8912e]/30 to-[#b8912e]/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
-                {/* Logo container */}
-                <div className="relative px-5 py-2 bg-gradient-to-br from-white via-white to-gray-50 border-b-3 border-l-3 border-r-3 border-[#b8912e] rounded-b-3xl shadow-xl hover:shadow-2xl transition-all duration-300 group-hover:scale-105">
-                  <img 
-                    src={logo} 
-                    alt="JBS Legal" 
-                    className="h-20 sm:h-24 md:h-28 w-auto object-contain drop-shadow-lg" 
-                  />
-                  {/* Shine effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 group-hover:translate-x-full transition-transform duration-1000"></div>
-                </div>
-              </div>
-            </Link>
+          {/* Logo */}
+<Link to="/" className="flex items-center flex-shrink-0">
+  <img
+    src={logo}
+    alt="JBS Legal"
+    className="h-20 sm:h-24 md:h-28 w-auto object-contain"
+  />
+</Link>
+
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-8">

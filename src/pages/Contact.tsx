@@ -1,11 +1,13 @@
 import { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, CheckCircle, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { ConsultationBooking } from '@/components/ConsultationBooking';
 
 const Contact = () => {
+  const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -219,22 +221,38 @@ const Contact = () => {
                   />
                 </div>
 
-                <Button type="submit" variant="gold" size="xl" className="w-full" disabled={isSubmitting}>
-                  {isSubmitting ? (
-                    'Sending...'
-                  ) : (
-                    <>
-                      Send via WhatsApp
-                      <Send className="w-5 h-5" />
-                    </>
-                  )}
-                </Button>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button type="submit" variant="gold" size="xl" className="flex-1" disabled={isSubmitting}>
+                {isSubmitting ? (
+                  'Sending...'
+                ) : (
+                  <>
+                    Send via WhatsApp
+                    <Send className="w-5 h-5" />
+                  </>
+                )}
+              </Button>
+              <Button
+                type="button"
+                variant="outline"
+                size="xl"
+                className="flex-1 border-[#c3a14b] text-[#c3a14b] hover:bg-[#c3a14b]/5"
+                onClick={() => setIsConsultationModalOpen(true)}
+              >
+                <Calendar className="w-5 h-5" />
+                Schedule Call
+              </Button>
+            </div>
               </form>
             </div>
           </div>
         </div>
       </section>
 
+      <ConsultationBooking
+        isOpen={isConsultationModalOpen}
+        onClose={() => setIsConsultationModalOpen(false)}
+      />
       <Footer />
     </div>
   );
