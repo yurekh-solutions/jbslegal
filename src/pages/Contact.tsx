@@ -48,7 +48,7 @@ const Contact = () => {
       <Header />
 
       {/* Hero */}
-      <section className="bg-primary py-16 lg:py-24">
+      <section className="gradient-hero py-16 lg:py-24">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6">
             Get in <span className="text-accent">Touch</span>
