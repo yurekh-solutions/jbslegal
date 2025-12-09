@@ -56,7 +56,7 @@ const Header = () => {
         className={`sticky top-0 z-50 transition-all duration-300 ${
           isScrolled
             ? 'glass-nav shadow-lg'
-            : 'bg-card/95 backdrop-blur-sm'
+            : 'bg-slate-50 backdrop-blur-sm border-b border-slate-200'
         }`}
       >
         <div className="container mx-auto px-4 sm:px-6">
@@ -113,7 +113,7 @@ const Header = () => {
 
         {/* Mobile Menu */}
         <div
-          className={`lg:hidden absolute top-full left-0 w-full glass-nav shadow-lg transition-all duration-300 ${
+          className={`lg:hidden absolute top-full left-0 w-full bg-slate-50 border-b border-slate-200 shadow-lg transition-all duration-300 ${
             isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
           }`}
         >

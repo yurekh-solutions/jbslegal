@@ -6,25 +6,21 @@ export const PhoneButton = () => {
   };
 
   return (
-   <button
-  onClick={handleCall}
-  className="
-    fixed z-50
-    h-12 w-12 rounded-full bg-[#b8912e] hover:bg-[#a07d26]
-    shadow-lg transition-all hover:scale-110 flex items-center justify-center group cursor-pointer
+    <button
+      onClick={handleCall}
+      className="
+        fixed z-50         h-14 w-14 rounded-full bg-[#b8912e] hover:bg-[#a07d26]
+        shadow-xl transition-all duration-300 hover:scale-110 flex items-center justify-center group cursor-pointer
+        right-4 sm:right-6 md:right-8
+        bottom-32 sm:bottom-40 md:bottom-48 
+      "
+      aria-label="Call us"
+    >
+      <Phone className="h-7 w-7 text-white" />
 
-    bottom-44 right-4       /* top button position */
-    sm:bottom-48 sm:right-6 /* small screens */
-    md:bottom-52 md:right-8 /* tablets & desktops */
-  "
-  aria-label="Call us"
->
-  <Phone className="h-7 w-7 text-white" />
-
-  <span className="absolute right-full mr-3 px-3 py-2 bg-gray-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-    Call us now
-  </span>
-</button>
-
+      <span className="absolute right-full mr-3 px-3 py-2 bg-gray-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+        Call us now
+      </span>
+    </button>
   );
 };

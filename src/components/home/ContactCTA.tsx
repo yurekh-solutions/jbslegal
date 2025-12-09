@@ -29,9 +29,6 @@ const ContactCTA = () => {
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </Button>
-            <Button asChild variant="heroOutline" size="xl">
-              <Link to="/contact">Schedule Consultation</Link>
-            </Button>
           </div>
 
           {/* Contact Info */}

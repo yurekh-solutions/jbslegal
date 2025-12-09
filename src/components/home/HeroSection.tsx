@@ -18,7 +18,7 @@ const HeroSection = () => {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white pt-20 lg:pt-0"
     >
       {/* Background */}
       <div 
@@ -89,18 +89,16 @@ const HeroSection = () => {
             </div>
 
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-1">
+            <div className="flex flex-col w-full sm:w-auto sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-6">
               <ButtonLink
                 href="/contact"
-                className="w-full sm:w-auto bg-[#c3a14b] hover:bg-[#b39041] text-white px-8 py-3 rounded-lg shadow-lg"
+                className="w-full sm:w-auto bg-[#c3a14b] hover:bg-[#b8912e] text-white px-6 sm:px-8 py-3.5 rounded-lg font-semibold shadow-md hover:shadow-lg text-center"
               >
                 Schedule Consultation
-                <ArrowRight className="w-5 h-5 ml-2" />
               </ButtonLink>
-
               <ButtonLink
                 href="/about"
-                className="w-full sm:w-auto border-2 border-slate-300 bg-white hover:bg-slate-50 text-slate-800 px-8 py-3 rounded-lg"
+                className="w-full sm:w-auto border-2 border-slate-300 bg-white hover:bg-slate-50 text-slate-800 px-6 sm:px-8 py-3 rounded-lg font-semibold text-center"
               >
                 Our Expertise
               </ButtonLink>

@@ -242,24 +242,7 @@ const Contact = () => {
                   </Button>
 
                   {/* Schedule Button */}
-                  <Button
-                    type="button"
-                    variant="outline"
-                    size="xl"
-                    className="
-                      flex-2 
-                      h-[54px] sm:h-[52px]
-                      border-[#c3a14b] 
-                      text-[#c3a14b] 
-                      hover:bg-[#c3a14b]/5 
-                      text-base sm:text-lg
-                      flex items-center justify-center gap-2
-                    "
-                    onClick={() => navigate('/consultation-booking')}
-                  >
-                    <Calendar className="w-5 h-5" />
-                    Schedule Call
-                  </Button>
+                 
                 </div>
               </form>
             </div>
