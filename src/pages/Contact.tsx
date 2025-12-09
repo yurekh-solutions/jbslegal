@@ -4,10 +4,10 @@ import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { ConsultationBooking } from '@/components/ConsultationBooking';
+import { useNavigate } from 'react-router-dom';
 
 const Contact = () => {
-  const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -221,38 +221,52 @@ const Contact = () => {
                   />
                 </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button type="submit" variant="gold" size="xl" className="flex-1" disabled={isSubmitting}>
-                {isSubmitting ? (
-                  'Sending...'
-                ) : (
-                  <>
-                    Send via WhatsApp
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button
+                    type="submit"
+                    variant="default"
+                    size="xl"
+                    className="
+                      flex-2 
+                      h-[54px] sm:h-[52px]
+                      bg-[#c3a14b] 
+                      text-white 
+                      hover:bg-[#c3a14b]/90 
+                      text-base sm:text-lg
+                      flex items-center justify-center gap-2
+                    "
+                    disabled={isSubmitting}
+                  >
                     <Send className="w-5 h-5" />
-                  </>
-                )}
-              </Button>
-              <Button
-                type="button"
-                variant="outline"
-                size="xl"
-                className="flex-1 border-[#c3a14b] text-[#c3a14b] hover:bg-[#c3a14b]/5 hover:text-[#193966]"
-                onClick={() => setIsConsultationModalOpen(true)}
-              >
-                <Calendar className="w-5 h-5" />
-                Schedule Call
-              </Button>
-            </div>
+                    Send Message
+                  </Button>
+
+                  {/* Schedule Button */}
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="xl"
+                    className="
+                      flex-2 
+                      h-[54px] sm:h-[52px]
+                      border-[#c3a14b] 
+                      text-[#c3a14b] 
+                      hover:bg-[#c3a14b]/5 
+                      text-base sm:text-lg
+                      flex items-center justify-center gap-2
+                    "
+                    onClick={() => navigate('/consultation-booking')}
+                  >
+                    <Calendar className="w-5 h-5" />
+                    Schedule Call
+                  </Button>
+                </div>
               </form>
             </div>
           </div>
         </div>
       </section>
 
-      <ConsultationBooking
-        isOpen={isConsultationModalOpen}
-        onClose={() => setIsConsultationModalOpen(false)}
-      />
       <Footer />
     </div>
   );
