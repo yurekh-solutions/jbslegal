@@ -138,123 +138,148 @@ export const ConsultationBooking = ({ isOpen, onClose }: ConsultationBookingProp
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
-        {/* Header */}
-        <div className="sticky top-0 flex items-center justify-between p-6 border-b border-slate-200 bg-white">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-[#c3a14b]/10 rounded-lg">
-              <Calendar className="w-5 h-5 text-[#c3a14b]" />
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-md z-50 flex items-center justify-center p-4">
+      <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto border border-slate-200/50">
+        {/* Header - Enhanced */}
+        <div className="sticky top-0 bg-gradient-to-r from-[#c3a14b] to-[#d4af37] px-6 py-8 border-b border-[#b39041]/20">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="p-3 bg-white/20 rounded-xl backdrop-blur-sm">
+              <Calendar className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h2 className="text-xl font-bold text-slate-900">Schedule Consultation</h2>
-              <p className="text-xs text-slate-500">{step === 'date' ? 'Select Date' : step === 'time' ? 'Select Time' : 'Your Details'}</p>
+              <h2 className="text-2xl font-bold text-white tracking-tight">Schedule Consultation</h2>
+              <p className="text-sm text-white/80 font-medium mt-1">{step === 'date' ? '📅 Select Date' : step === 'time' ? '🕐 Select Time' : '👤 Your Details'}</p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-slate-100 rounded-lg transition-colors"
+            className="absolute top-4 right-4 p-2 hover:bg-white/20 rounded-lg transition-all text-white"
             aria-label="Close"
           >
-            <X className="w-5 h-5 text-slate-600" />
+            <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Content */}
-        <div className="p-6">
+        <div className="p-6 space-y-6">
           {step === 'date' && (
-            <div className="space-y-6">
-              <div className="bg-gradient-to-r from-[#c3a14b]/10 to-[#d4af37]/10 border border-[#c3a14b]/20 rounded-xl p-5 flex gap-3">
-                <Calendar className="w-5 h-5 text-[#c3a14b] flex-shrink-0 mt-0.5" />
-                <div>
-                  <p className="text-sm font-semibold text-slate-900">Choose Your Date</p>
-                  <p className="text-xs text-slate-600 mt-1">Select from the next 30 days • Timezone: IST (UTC+5:30)</p>
+            <div className="space-y-6 animate-in fade-in duration-300">
+              <div className="bg-gradient-to-br from-blue-50 via-blue-40 to-indigo-50 border-2 border-blue-200 rounded-2xl p-6 flex gap-4 shadow-sm">
+                <div className="p-3 bg-blue-100 rounded-xl">
+                  <Calendar className="w-6 h-6 text-blue-600" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-sm font-bold text-blue-900">Choose Your Date</p>
+                  <p className="text-xs text-blue-700 mt-2 leading-relaxed">Next 30 days available • IST (UTC+5:30)</p>
                 </div>
               </div>
+              
               <style>{`
+                @keyframes slideUp {
+                  from { opacity: 0; transform: translateY(10px); }
+                  to { opacity: 1; transform: translateY(0); }
+                }
+                .animate-in { animation: slideUp 0.3s ease-out; }
+                
                 .rdp {
-                  --rdp-cell-size: 45px;
+                  --rdp-cell-size: 50px;
                   --rdp-accent-color: #c3a14b;
-                  --rdp-background-color: #c3a14b20;
+                  --rdp-background-color: #c3a14b15;
                   margin: 0 auto;
-                  font-weight: 500;
+                  font-weight: 600;
+                  width: 100%;
                 }
                 .rdp-head_cell {
-                  font-weight: 700;
-                  color: #1f2937;
-                  font-size: 11px;
+                  font-weight: 800;
+                  color: #1e293b;
+                  font-size: 12px;
                   text-transform: uppercase;
-                  letter-spacing: 0.5px;
+                  letter-spacing: 1px;
+                  padding: 8px 0;
                 }
                 .rdp-cell {
-                  padding: 2px;
+                  padding: 4px;
                 }
                 .rdp-day {
-                  border-radius: 8px;
-                  font-weight: 500;
-                  font-size: 13px;
+                  border-radius: 10px;
+                  font-weight: 600;
+                  font-size: 14px;
+                  transition: all 0.2s;
+                }
+                .rdp-day:hover:not(.rdp-day_disabled) {
+                  background-color: #f1e8d9;
+                  transform: scale(1.05);
                 }
                 .rdp-day_selected {
-                  background-color: #c3a14b;
+                  background: linear-gradient(135deg, #c3a14b, #d4af37);
                   color: white;
-                  font-weight: 700;
-                  box-shadow: 0 4px 12px rgba(195, 161, 75, 0.3);
+                  font-weight: 800;
+                  box-shadow: 0 8px 16px rgba(195, 161, 75, 0.4);
+                  transform: scale(1.08);
                 }
                 .rdp-day_disabled {
-                  opacity: 0.4;
+                  opacity: 0.35;
                   cursor: not-allowed;
-                  color: #9ca3af;
+                  color: #cbd5e1;
                 }
                 .rdp-day_today {
-                  font-weight: 700;
-                  color: #1f2937;
+                  font-weight: 800;
+                  color: #0284c7;
+                  border: 2px solid #0284c7;
                 }
               `}</style>
-              <DayPicker
-                mode="single"
-                selected={selectedDate}
-                onSelect={handleDateSelect}
-                disabled={date => isPast(date) || isToday(date)}
-              />
-              <div className="text-center text-xs text-slate-500">
-                <span className="inline-block px-3 py-1 bg-slate-50 rounded-full">
-                  Selected: {selectedDate ? format(selectedDate, 'MMM dd, yyyy') : 'None'}
+              
+              <div className="bg-white border-2 border-slate-100 rounded-2xl p-4 shadow-sm">
+                <DayPicker
+                  mode="single"
+                  selected={selectedDate}
+                  onSelect={handleDateSelect}
+                  disabled={date => isPast(date) || isToday(date)}
+                />
+              </div>
+              
+              <div className="text-center">
+                <span className="inline-block px-4 py-2 bg-gradient-to-r from-[#c3a14b]/10 to-[#d4af37]/10 border border-[#c3a14b]/20 rounded-full text-sm font-semibold text-slate-700">
+                  {selectedDate ? format(selectedDate, 'MMM dd, yyyy') : '📅 Select a date'}
                 </span>
               </div>
-              <Button onClick={onClose} variant="outline" className="w-full text-slate-700 border-slate-200 hover:bg-slate-50">
+              
+              <Button onClick={onClose} variant="outline" className="w-full text-slate-700 border-2 border-slate-200 hover:bg-slate-50 font-semibold py-3 rounded-xl transition-all">
                 Cancel
               </Button>
             </div>
           )}
 
           {step === 'time' && (
-            <div className="space-y-6">
-              <div className="bg-gradient-to-r from-[#c3a14b]/10 to-[#d4af37]/10 border border-[#c3a14b]/20 rounded-xl p-5">
-                <div className="flex items-center gap-3 mb-3">
-                  <Clock className="w-5 h-5 text-[#c3a14b] flex-shrink-0" />
+            <div className="space-y-6 animate-in fade-in duration-300">
+              <div className="bg-gradient-to-br from-orange-50 via-amber-40 to-yellow-50 border-2 border-orange-200 rounded-2xl p-6 shadow-sm">
+                <div className="flex items-center gap-3 mb-1">
+                  <div className="p-3 bg-orange-100 rounded-xl">
+                    <Clock className="w-6 h-6 text-orange-600" />
+                  </div>
                   <div className="flex-1">
-                    <p className="text-sm font-semibold text-slate-900">
-                      {selectedDate ? format(selectedDate, 'EEEE, MMMM dd, yyyy') : 'Select Date'}
+                    <p className="text-sm font-bold text-orange-900">
+                      {selectedDate ? format(selectedDate, 'EEEE, MMMM dd') : 'Select Date'}
                     </p>
-                    <p className="text-xs text-slate-600 mt-1">Select your preferred time slot</p>
+                    <p className="text-xs text-orange-700 mt-1">Pick your preferred time slot</p>
                   </div>
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <p className="text-xs font-semibold text-slate-700 uppercase tracking-wider">Available Time Slots</p>
+              <div className="space-y-3">
+                <p className="text-xs font-bold text-slate-700 uppercase tracking-wider px-1">⏰ Available Slots</p>
                 <div className="grid grid-cols-2 gap-3">
                   {AVAILABLE_TIME_SLOTS.map(slot => (
                     <button
                       key={slot.time}
                       onClick={() => handleTimeSelect(slot.time)}
                       disabled={!slot.available}
-                      className={`py-3 px-4 rounded-lg font-semibold text-sm transition-all duration-200 ${
+                      className={`py-4 px-4 rounded-xl font-bold text-sm transition-all duration-200 transform ${
                         selectedTime === slot.time
-                          ? 'bg-[#c3a14b] text-white shadow-lg scale-105'
+                          ? 'bg-gradient-to-br from-[#c3a14b] to-[#d4af37] text-white shadow-xl scale-105 ring-2 ring-[#c3a14b]/50'
                           : slot.available
-                          ? 'bg-slate-100 text-slate-900 hover:bg-[#c3a14b]/15 hover:border-[#c3a14b] border-2 border-transparent cursor-pointer'
-                          : 'bg-slate-50 text-slate-400 cursor-not-allowed opacity-50'
+                          ? 'bg-gradient-to-br from-slate-50 to-slate-100 text-slate-900 hover:from-[#c3a14b]/10 hover:to-[#d4af37]/10 border-2 border-slate-200 hover:border-[#c3a14b] cursor-pointer hover:scale-105'
+                          : 'bg-slate-50 text-slate-400 cursor-not-allowed opacity-40'
                       }`}
                     >
                       {slot.time}
@@ -263,18 +288,18 @@ export const ConsultationBooking = ({ isOpen, onClose }: ConsultationBookingProp
                 </div>
               </div>
 
-              <div className="bg-slate-50 p-4 rounded-lg border-l-4 border-[#c3a14b]">
-                <p className="text-xs text-slate-600"><span className="font-semibold text-slate-900">{selectedTime || 'Select a time'}</span> • IST (Indian Standard Time)</p>
+              <div className="bg-gradient-to-r from-slate-50 to-slate-100 p-4 rounded-xl border-l-4 border-[#c3a14b] shadow-sm">
+                <p className="text-xs text-slate-600"><span className="font-bold text-slate-900 text-sm">{selectedTime || '🕐 Select a time'}</span> • IST</p>
               </div>
 
               <div className="flex gap-3">
-                <Button onClick={() => setStep('date')} variant="outline" className="flex-1 text-slate-700 border-slate-200">
+                <Button onClick={() => setStep('date')} variant="outline" className="flex-1 text-slate-700 border-2 border-slate-200 hover:bg-slate-50 font-semibold py-3 rounded-xl">
                   ← Back
                 </Button>
                 <Button
                   onClick={() => selectedTime && setStep('details')}
                   disabled={!selectedTime}
-                  className="flex-1 bg-[#c3a14b] hover:bg-[#b39041] text-white font-semibold"
+                  className="flex-1 bg-gradient-to-r from-[#c3a14b] to-[#d4af37] hover:shadow-lg text-white font-bold py-3 rounded-xl transition-all disabled:opacity-50"
                 >
                   Continue →
                 </Button>
@@ -283,77 +308,89 @@ export const ConsultationBooking = ({ isOpen, onClose }: ConsultationBookingProp
           )}
 
           {step === 'details' && (
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="bg-gradient-to-r from-[#c3a14b]/10 to-[#d4af37]/10 border border-[#c3a14b]/20 rounded-xl p-4">
+            <form onSubmit={handleSubmit} className="space-y-5 animate-in fade-in duration-300">
+              <div className="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-2xl p-5 shadow-sm">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-xs font-semibold text-slate-600 uppercase tracking-wider">Scheduled For</p>
-                    <p className="text-sm font-bold text-slate-900 mt-1">
-                      {format(selectedDate!, 'MMMM dd, yyyy')} • {selectedTime}
+                    <p className="text-xs font-bold text-green-700 uppercase tracking-wider">✓ Scheduled For</p>
+                    <p className="text-lg font-bold text-green-900 mt-2">
+                      {format(selectedDate!, 'MMM dd, yyyy')} • {selectedTime}
                     </p>
                   </div>
-                  <CheckCircle className="w-6 h-6 text-[#c3a14b]" />
+                  <CheckCircle className="w-8 h-8 text-green-500" />
                 </div>
               </div>
 
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-slate-900 mb-2">
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-2.5 rounded-lg bg-slate-50 border border-slate-200 focus:border-[#c3a14b] focus:ring-2 focus:ring-[#c3a14b]/20 outline-none transition-all text-slate-900"
-                  placeholder="John Doe"
-                />
+              <div className="space-y-4">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-bold text-slate-900 mb-2.5">
+                    👤 Full Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 rounded-xl bg-gradient-to-r from-slate-50 to-slate-100 border-2 border-slate-200 focus:border-[#c3a14b] focus:ring-2 focus:ring-[#c3a14b]/20 outline-none transition-all text-slate-900 font-medium placeholder-slate-500"
+                    placeholder="Sonia Jaiswal"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-sm font-bold text-slate-900 mb-2.5">
+                    ✉️ Email Address
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 rounded-xl bg-gradient-to-r from-slate-50 to-slate-100 border-2 border-slate-200 focus:border-[#c3a14b] focus:ring-2 focus:ring-[#c3a14b]/20 outline-none transition-all text-slate-900 font-medium placeholder-slate-500"
+                    placeholder="sonia@example.com"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="whatsapp" className="block text-sm font-bold text-slate-900 mb-2.5">
+                    💬 WhatsApp Number
+                  </label>
+                  <input
+                    type="tel"
+                    id="whatsapp"
+                    name="whatsapp"
+                    value={formData.whatsapp}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 rounded-xl bg-gradient-to-r from-slate-50 to-slate-100 border-2 border-slate-200 focus:border-[#c3a14b] focus:ring-2 focus:ring-[#c3a14b]/20 outline-none transition-all text-slate-900 font-medium placeholder-slate-500"
+                    placeholder="+91 70213 41409"
+                  />
+                </div>
               </div>
 
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-slate-900 mb-2">
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-2.5 rounded-lg bg-slate-50 border border-slate-200 focus:border-[#c3a14b] focus:ring-2 focus:ring-[#c3a14b]/20 outline-none transition-all text-slate-900"
-                  placeholder="john@example.com"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="whatsapp" className="block text-sm font-medium text-slate-900 mb-2">
-                  WhatsApp Number *
-                </label>
-                <input
-                  type="tel"
-                  id="whatsapp"
-                  name="whatsapp"
-                  value={formData.whatsapp}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-2.5 rounded-lg bg-slate-50 border border-slate-200 focus:border-[#c3a14b] focus:ring-2 focus:ring-[#c3a14b]/20 outline-none transition-all text-slate-900"
-                  placeholder="+91 98765 43210"
-                />
+              <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-4">
+                <p className="text-xs text-blue-700 leading-relaxed">
+                  <span className="font-bold">📧 Confirmation:</span> A detailed email with meeting link will be sent to your email address.
+                </p>
               </div>
 
               <div className="flex gap-3">
-                <Button onClick={() => setStep('time')} variant="outline" className="flex-1">
-                  Back
+                <Button onClick={() => setStep('time')} variant="outline" className="flex-1 text-slate-700 border-2 border-slate-200 hover:bg-slate-50 font-semibold py-3 rounded-xl">
+                  ← Back
                 </Button>
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex-1 bg-[#c3a14b] hover:bg-[#b39041]"
+                  className="flex-1 bg-gradient-to-r from-[#c3a14b] to-[#d4af37] hover:shadow-lg text-white font-bold py-3 rounded-xl transition-all disabled:opacity-50 flex items-center justify-center gap-2"
                 >
-                  {isSubmitting ? 'Booking...' : 'Confirm Booking'}
+                  {isSubmitting ? (
+                    <><Loader className="w-4 h-4 animate-spin" /> Booking...</>
+                  ) : (
+                    <>✓ Confirm Booking</>
+                  )}
                 </Button>
               </div>
             </form>
